@@ -60,11 +60,11 @@ function AjoutNouvelEleve()
     nbEleves++;
     id = nbEleves;
     let ligne = $("<tr></tr>")
-    ligne.append($("<th></th>").append($("<button></button>").attr("class", "btn btn-link select").attr("data-idEleve", id).text("Selectionner")))
+    ligne.append($("<th></th>").append($("<button></button>").attr("class", "btn btn-link text-danger select").attr("data-idEleve", id).text("Selectionner")))
     ligne.append($("<td></td>").text(nom))
     ligne.append($("<td></td>").text(prenom))
-    ligne.append($("<td></td>").append($("<button></button>").attr("class", "btn btn-link update").attr("data-idEleve", id).attr("data-toggle", "modal").attr("data-target", "#ModifierModalCenter").text("Modifier")))
-    ligne.append($("<td></td>").append($("<button></button>").attr("class", "btn btn-link delet").attr("data-idEleve", id).text("Supprimer")))
+    ligne.append($("<td></td>").append($("<button></button>").attr("class", "btn btn-link text-danger update").attr("data-idEleve", id).attr("data-toggle", "modal").attr("data-target", "#ModifierModalCenter").text("Modifier")))
+    ligne.append($("<td></td>").append($("<button></button>").attr("class", "btn btn-link text-danger delet").attr("data-idEleve", id).text("Supprimer")))
 
     //on ajoute la nouvelle ligne et on remet les champs à zero
     $("#tblEleves").append(ligne);
@@ -98,8 +98,8 @@ function AjoutNouvelleNoteAEleve()
     ligne.append($("<td></td>").append($("<input></input>").attr("class", "col-md form-control").attr("readonly", true).val(coef)))
     ligne.append($("<td></td>").append($("<input></input>").attr("class", "col-md form-control").attr("readonly", true).val(matiere)))
     ligne.append($("<td></td>").append($("<input></input>").attr("class", "col-md form-control").attr("readonly", true).val(date)))
-    ligne.append($("<td></td>").append($("<button></button>").attr("class", "btn btn-link supprNote").attr("data-idEleveSuppr", id).text("supprimer")))
-    ligne.append($("<td></td>").append($("<button></button>").attr("class", "btn btn-link modifNote").attr("data-idEleveModif", id).text("modifier")))
+    ligne.append($("<td></td>").append($("<button></button>").attr("class", "btn btn-link text-danger supprNote").attr("data-idEleveSuppr", id).text("supprimer")))
+    ligne.append($("<td></td>").append($("<button></button>").attr("class", "btn btn-link text-danger modifNote").attr("data-idEleveModif", id).text("modifier")))
     $("#ModifNoteEleve").append(ligne);
 
     let newNote = {}
@@ -176,8 +176,8 @@ function ModifierLeleve(listeDesEleves, id)
         ligne.append($("<td></td>").append($("<input></input>").attr("class", "col-md form-control").attr("readonly", true).val(note[i].coef)));
         ligne.append($("<td></td>").append($("<input></input>").attr("class", "col-md form-control").attr("readonly", true).val(note[i].matiere)));
         ligne.append($("<td></td>").append($("<input></input>").attr("class", "col-md form-control").attr("readonly", true).val(note[i].date_exam)));
-        ligne.append($("<td></td>").append($("<button></button>").attr("class", "btn btn-link supprNote").attr("data-idEleveSuppr", note[i].id_Note).text("Supprimer")))
-        ligne.append($("<td></td>").append($("<button></button>").attr("class", "btn btn-link modifNote").attr("data-idEleveModif", note[i].id_Note).text("Modifier")))
+        ligne.append($("<td></td>").append($("<button></button>").attr("class", "btn btn-link text-danger supprNote").attr("data-idEleveSuppr", note[i].id_Note).text("Supprimer")))
+        ligne.append($("<td></td>").append($("<button></button>").attr("class", "btn btn-link text-danger modifNote").attr("data-idEleveModif", note[i].id_Note).text("Modifier")))
         $("#ModifNoteEleve").append(ligne);
     }
 }
@@ -190,16 +190,16 @@ function RemplirTableauEleve(tableauDeDonnees, composantGraphiqueParent)
     for (eleve of tableauDeDonnees) {
         let ligne = $("<tr></tr>");
         ligne.append($("<td></td>").append($("<button></button>")
-            .addClass("btn btn-link select").attr("data-idEleve", eleve.idEleve).html("Selectionner")));
+            .addClass("btn btn-link text-danger select").attr("data-idEleve", eleve.idEleve).html("Selectionner")));
 
         ligne.append($("<td></td>").html(eleve.nom));
         ligne.append($("<td></td>").html(eleve.prenom));
 
         ligne.append($("<td></td>").append($("<button></button>")
-            .addClass("btn btn-link update").attr("data-idEleve", eleve.idEleve).attr("data-toggle", "modal").attr("data-target", "#ModifierModalCenter").html("Modifier")));
+            .addClass("btn btn-link text-danger update").attr("data-idEleve", eleve.idEleve).attr("data-toggle", "modal").attr("data-target", "#ModifierModalCenter").html("Modifier")));
 
         ligne.append($("<td></td>").append($("<button></button>")
-            .addClass("btn btn-link delet").attr("data-idEleve", eleve.idEleve).html("Supprimer")));
+            .addClass("btn btn-link text-danger delet").attr("data-idEleve", eleve.idEleve).html("Supprimer")));
 
         composantGraphiqueParent.append(ligne);
     }
