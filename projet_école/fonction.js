@@ -87,6 +87,20 @@ function AjoutNouvelEleve()
 function AjoutNouvelleNoteAEleve()
 {
     id = $("#IDNoteEleveModif").val()
+    //verifie que l'id note n'éxiste pas déjà
+    for(i=0;i<tblEleves[idEleveEnCours-1].notes.length;i++)
+    {
+        if(tblEleves[idEleveEnCours-1].notes[i].id_Note == id)
+        {
+            alert("identifiant note déjà éxisatant")
+            return
+        }
+    }
+    if(id == "" || id == null)
+    {
+        alert("entrer un identifiant de note")
+        return
+    }
     note = $("#NoteEleveModif").val()
     coef = $("#CoefEleveModif").val()
     matiere = $("#MatiereEleveModif").val()

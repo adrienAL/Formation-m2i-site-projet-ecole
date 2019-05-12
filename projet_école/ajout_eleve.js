@@ -70,7 +70,7 @@ $(document).ready(function () {
     tblEleves[idEleveEnCours-1].notes[monIndex].note =$(this).parent().prev().prev().prev().prev().prev().children().val()
 
     $(this).parent().siblings().children().attr("readonly",true)    
-    $(this).html("Modifier").removeAttr("class").attr("class", "btn btn-link modifNote")
+    $(this).html("Modifier").removeAttr("class").attr("class", "btn btn-link text-danger modifNote")
 
   });
 
